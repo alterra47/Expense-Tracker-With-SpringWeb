@@ -2,13 +2,28 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: expenses
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - uses: actions/checkout@v4
@@ -20,10 +35,15 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      - name: Grant execute permission for gradlew
+      - name: Grant permission for gradlew
         run: chmod +x mvnw
 
-      # No database wait needed!
+      - name: Wait for Database
+        run: |
+          until docker exec ${{ job.services.postgres.id }} pg_isready; do
+            echo "Waiting for postgres..."
+            sleep 1
+          done
 
-      - name: Run Unit Tests
-        run: ./mvnw test
+      - name: Run Unit tests
+        run: ./mvnw test -Dspring.datasource.url=jdbc:postgresql://localhost:5432/expenses -Dspring.datasource.username=postgres -Dspring.datasource.password=password

@@ -25,7 +25,9 @@ public class ExpenseService {
     }
     public List<Expense> getExpenses(){
         try{
-            return this.expenseRepo.findAllByOrderByDateTimeDesc();
+            //return this.expenseRepo.findAllByOrderByDateTimeDesc();
+            // We "accidentally" forgot to sort by newest first
+            return this.expenseRepo.findAll();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

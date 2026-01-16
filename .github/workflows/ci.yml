@@ -38,5 +38,12 @@ jobs:
       - name: Grant permission for gradlew
         run: chmod +x mvnw
 
+      - name: Wait for Database
+      - run: |
+          until docker exec ${{ job.services.postgres.id }} pg_isready; do
+          echo "Waiting for postgres..."
+          sleep 1
+          done
+
       - name: Run Unit tests
         run: ./mvnw test

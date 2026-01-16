@@ -46,4 +46,4 @@ jobs:
           done
 
       - name: Run Unit tests
-        run: ./mvnw test -Djava.net.preferIPv4Stack=true
+        run: ./mvnw test -Dspring.datasource.url=jdbc:postgresql://localhost:5432/expenses -Dspring.datasource.username=postgres -Dspring.datasource.password=password

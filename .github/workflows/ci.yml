@@ -46,4 +46,4 @@ jobs:
           done
 
       - name: Run Unit tests
-        run: ./mvnw test
+        run: ./mvnw test -Djava.net.preferIPv4Stack=true

@@ -38,8 +38,59 @@ The application utilizes a modern **Cloud-Native** design:
 | --- | --- | --- |
 | `GET` | `/expenses` | List all records (Sorted: Newest First) |
 | `POST` | `/expenses` | Create a new expense entry |
-| `GET` | `/expenses/{id}` | Retrieve details for a single entry |
-| `DELETE` | `/expenses/{id}` | Remove a record from the database |
+| `GET` | `/expenses/{amount}` | List all records (Sorted: Newest First) above the specified amount |
+
+#### 1. Data Model
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `Long` | Primary Key (Auto-generated) |
+| `description` | `String` | What the money was spent on |
+| `amount` | `Double` | The numerical cost |
+| `category` | `String` | e.g., Food, Travel, Rent |
+| `date` | `LocalDateTime` | Auto-set to current timestamp |
+
+#### 2. Get All Expenses
+
+**URL:** `/expenses`
+
+**Method:** `GET`
+
+**Success Response:** `200 OK`
+
+```json
+[
+  {
+    "id": 1,
+    "description": "Lunch at Hostel",
+    "amount": 120.50,
+    "category": "Food",
+    "date": "2026-01-17T10:00:00"
+  }
+]
+
+```
+
+#### 3. Create Expense
+
+**URL:** `/expenses`
+
+**Method:** `POST`
+
+**Payload:**
+
+```json
+{
+  "description": "New Keyboard",
+  "amount": 1500.00,
+  "category": "Electronics"
+}
+
+```
+
+**Success Response:** `201 Created`
+
+---
 
 ### Example Request (POST)
 

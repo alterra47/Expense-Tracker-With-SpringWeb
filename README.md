@@ -93,7 +93,3 @@ docker run -p 8080:8080 \
   expense-tracker-api
 
 ```
-
----
-
-### Would you like me to help you set up the **GitHub Repository description** and **topics** next to make this project more discoverable for recruiters?

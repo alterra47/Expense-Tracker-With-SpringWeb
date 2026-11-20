@@ -39,6 +39,7 @@ The application utilizes a modern **Cloud-Native** design:
 | `GET` | `/expenses` | List all records (Sorted: Newest First) |
 | `POST` | `/expenses` | Create a new expense entry |
 | `GET` | `/expenses/{id}` | Retrieve details for a single entry |
+| `GET` | `/expenses/expensive/{amt}` | Retrieve entries with amounts greater than given theshold |
 | `DELETE` | `/expenses/{id}` | Remove a record from the database |
 
 ### Example Request (POST)

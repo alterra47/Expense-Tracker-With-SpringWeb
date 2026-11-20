@@ -8,4 +8,6 @@ import java.util.List;
 public interface ExpenseRepo extends JpaRepository<Expense, Long> {
     public List<Expense> findByAmountGreaterThan(BigDecimal amt);
     public List<Expense> findAllByOrderByDateTimeDesc();
+
+    List<Expense> id(Long id);
 }

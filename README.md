@@ -39,14 +39,14 @@ The application utilizes a modern **Cloud-Native** design:
 | `GET` | `/expenses` | List all records (Sorted: Newest First) |
 | `POST` | `/expenses` | Create a new expense entry |
 | `GET` | `/expenses/{id}` | Retrieve details for a single entry |
+| `GET` | `/expenses/expensive/{amt}` | Retrieve details for a entries with amount larger than given threshold |
 | `DELETE` | `/expenses/{id}` | Remove a record from the database |
 
 ### Example Request (POST)
 
 ```bash
-curl -X POST https://expense-tracker-backend-156g.onrender.com/expenses \
-     -H "Content-Type: application/json" \
-     -d '{"description": "Server Hosting", "amount": 15.0, "category": "Tech"}'
+curl -X POST "https://expense-tracker-backend-156g.onrender.com/expenses" -H "Content-Type: application/json" -d "{\"description\":\"Server Hosting\",\"amount\":15.0,\"dateTime\":\"2026-11-20T14:40:00\"}"
+
 
 ```
 
@@ -94,7 +94,3 @@ docker run -p 8080:8080 \
   expense-tracker-api
 
 ```
-
----
-
-### Would you like me to help you set up the **GitHub Repository description** and **topics** next to make this project more discoverable for recruiters?

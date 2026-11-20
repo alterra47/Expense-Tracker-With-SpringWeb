@@ -31,6 +31,24 @@ public class ExpenseService {
             return null;
         }
     }
+    public Expense getExpense(Long id){
+        try{
+            return this.expenseRepo.getReferenceById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Expense removeExpense(Long id){
+        try{
+            this.expenseRepo.delete(this.expenseRepo.getReferenceById(id));
+            return null;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     public List<Expense> getExpensiveExpenses(BigDecimal amt){
         try{
             return this.expenseRepo.findByAmountGreaterThan(amt);

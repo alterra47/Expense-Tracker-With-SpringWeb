@@ -34,12 +34,31 @@ public class ExpenseController {
             return null;
         }
     }
+    @GetMapping("/expenses/{id}")
+    public Expense getExpenseById(@PathVariable Long id){
+        try{
+            return this.expenseService.getExpense(id);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     @GetMapping("/expenses/expensive/{amt}")
     public List<Expense> getExpensiveExpenses(@PathVariable BigDecimal amt){
         try{
             return this.expenseService.getExpensiveExpenses(amt);
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @DeleteMapping("/expenses/{id}")
+    public Expense removeExpenseById(@PathVariable Long id){
+        try{
+            return this.expenseService.removeExpense(id);
+        }catch(Exception e){
             e.printStackTrace();
             return null;
         }

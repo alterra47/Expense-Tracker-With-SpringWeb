@@ -44,9 +44,7 @@ The application utilizes a modern **Cloud-Native** design:
 ### Example Request (POST)
 
 ```bash
-curl -X POST https://expense-tracker-backend-156g.onrender.com/expenses \
-     -H "Content-Type: application/json" \
-     -d '{"description": "Server Hosting", "amount": 15.0, "category": "Tech"}'
+curl -X POST "https://expense-tracker-backend-156g.onrender.com/expenses" -H "Content-Type: application/json" -d "{\"description\":\"Server Hosting\",\"amount\":15.0,\"dateTime\":\"2026-11-20T14:40:00\"}"
 
 ```
 

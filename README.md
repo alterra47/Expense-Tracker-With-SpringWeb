@@ -14,7 +14,7 @@ The API is currently deployed and running at:
 | Layer | Technology |
 | --- | --- |
 | **Language** | Java 25 (OpenJDK) |
-| **Framework** | Spring Boot 3.4+ |
+| **Framework** | Spring Boot 4.0+ |
 | **Database** | Neon PostgreSQL (Serverless) |
 | **Containerization** | Docker (Multi-stage builds) |
 | **CI/CD** | GitHub Actions |

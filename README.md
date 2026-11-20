@@ -1,6 +1,6 @@
 # 💸 Expense Tracker API
 
-A production-ready, containerized REST API built with **Java 25** and **Spring Boot**. This project manages personal expenses with a focus on clean architecture, automated CI/CD, and cloud-native database integration.
+A containerized REST API built with Java 25 and Spring Boot for managing personal expenses, deployed on Render with Neon PostgreSQL and automated CI through GitHub Actions.
 
 ## 🚀 Live Environment
 
